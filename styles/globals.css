@@ -16,13 +16,13 @@ body {
   position: relative;
 }
 :root {
-  --primary: #b4d1c9;
-  --secondary: #30cf3b96;
-  --secondary-gradient: linear-gradient(180deg, #266f0e 0%,#01fb128b 60%, #005e2a84 100%);
+  --primary: #EAE0DA;
+  --secondary: #8acf30;
+  --secondary-gradient: linear-gradient(180deg, #43be1a 0%,#01fb09d1 60%, #05fdc3 100%);
   --text: white; 
   --bluish: #cfe7ef;
-  --curtain: rgba(11, 164, 34, 0.468);
-  --content-box: #0ed8a28d;
+  --curtain: rgb(8, 234, 241);
+  --content-box: #0ed8a3;
   --target-bg: #a0c3d28b;
   --carausel-blue: #ffffff7d;
   --hh: 6em;
