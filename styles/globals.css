@@ -21,7 +21,7 @@ body {
   --secondary-gradient: linear-gradient(180deg, #266f0e 0%,#01fb128b 60%, #05fdd884 100%);
   --text: white; 
   --bluish: #cfe7ef;
-  --curtain: rgba(11, 164, 34, 0.468);
+  --curtain: rgb(23, 144, 120);
   --content-box: #0ed8a28d;
   --target-bg: #a0c3d28b;
   --carausel-blue: #ffffff7d;
