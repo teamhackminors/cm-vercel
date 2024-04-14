@@ -26,7 +26,7 @@ export default function Header() {
         </div>
         <div className={styles.action}>
           <span className={styles.actionButton} onClick={showPlayer} btn-action="player">
-            Showreel
+            Watch Video
             <span>→</span>
           </span>
           <span className={styles.actionButton} onClick={showMenu} btn-action="menu">
