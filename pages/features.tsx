@@ -38,7 +38,7 @@ const Contribute = () => {
       <main id="goalsPage">
         <article className={styles.article}>
           <div className={styles.article__content}>
-          <a href="https://carbonmanager.streamlit.app/">
+          <a href="https://carbonmanager.streamlit.app/" target="_blank" rel="noopener noreferrer">
             <h1>AI Carbon Footprint Manager </h1>
             
           </a>
@@ -66,17 +66,16 @@ Apart from this, it also has the following features:-<br></br><br></br>
             
             <hr></hr>
             <br />
-            <a href="https://chatbot-apon.onrender.com/">
+            <a href="https://chatbot-apon.onrender.com/" target="_blank" rel="noopener noreferrer">
             <Image src="/images/ChatUI.jpeg" alt="Forum"width={450} height={450} className={styles.page}/>
             <h1>Chat2Eco-The AI Chatbot</h1>
-            
             </a>
+            {/* Notice */}
+            <p className={styles.notice}>Please note that, the Chat UI has been hosted on Render, and can take around 40 seconds to load. Please wait for the page to load before interracting with the ChatUI. </p>
+             {/* Paragraph */}
             <p className={styles.p}>
             Hope you are well aware of LLM or AI Chatbots like ChatGPT, Gemini, LLAMA, Mixtral and many others which has garned popularity within a few days of its creation. In this growing market for LLM development, we present to you our specially designed LLM, the Chat2Eco, which is a finetuned Mixture-of-Experts model, specifically made address all environment and sustainability related topics. It has quite amazing features and qualities which makes it a must use under this domain:-<br /><br />
               🤖 Can Understand & Communicate in any language you want. <br /><br />
-              </p>
-             
-              <p className={styles.p}>
               🤖 Generates Best, Unique, Innovative & Creative Ideas, Choices & Suggestions than any other LLM.<br /><br />
               🤖 Highly Capable of Answering Questions Accurately under its domain.<br /><br />
               🤖 Can generate excellent pieces of Creative Writing like, poems, lyrics, report, article, speech, essay, slogan, etc. in any desired language on environmental conservation.<br /><br />
@@ -86,13 +85,15 @@ Apart from this, it also has the following features:-<br></br><br></br>
             </p>
             
             <hr /><br />
-            <a href="https://appdevelopersagnik.wixsite.com/carbon-manager-forum">
-
-            <h1 className="heading">Carbon Manager- Forum</h1>
-            
-            </a>
-            <Image src="/images/forum.jpeg" alt="Forum"width={450} height={450} className={styles.page} />
-            <p className={styles.p}>
+            <a href="https://bit.ly/CarbonManagerForum" target="_blank" rel="noopener noreferrer">
+        <h1 className="heading">Carbon Manager- Forum</h1>
+      </a>
+      {/* Notice */}
+      <p className={styles.notice}>Please note that, the WIX platform has been used to get access to resources free like php connections, firebase database, etc. Most of the work has been done using Velo API.</p>
+      {/* Image */}
+      <Image src="/images/forum.jpeg" alt="Forum" width={450} height={450} className={styles.page} />
+      {/* Paragraph */}
+      <p className={styles.p}>
             🌐 The development of a Community Discussion Forum for the Carbon Manager project aims to provide a dynamic platform where individuals can engage in discussions, share insights, and collaborate on ideas to combat carbon emissions and promote sustainability. The forum is designed with the familiar look and feel of social media platforms, making it intuitive and user-friendly. Users can participate in various activities such as asking questions, initiating discussions, sharing their own strategies for reducing carbon emissions, and learning from others' experiences and expertise.<br></br><br></br>
             🌐 The forum is designed with the familiar look and feel of social media platforms, making it intuitive and user-friendly. Users can participate in various activities such as asking questions, initiating discussions, sharing their own strategies for reducing carbon emissions, and learning from others' experiences and expertise. One of the key features is the ability for users to showcase their work and initiatives related to carbon emission reduction. This not only fosters a sense of community but also serves as inspiration for others looking to make a positive impact on the environment.<br></br><br></br>
             🌐 One of the key features is the ability for users to showcase their work and initiatives related to carbon emission reduction. This not only fosters a sense of community but also serves as inspiration for others looking to make a positive impact on the environment. Similar to social media platforms, users have the flexibility to customize their profiles, choose privacy settings, and connect with others by following their profiles or joining groups dedicated to specific topics or initiatives.<br></br><br></br>
