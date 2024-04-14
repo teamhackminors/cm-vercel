@@ -17,12 +17,12 @@ body {
 }
 :root {
   --primary: #b4d1c9;
-  --secondary: #085d4596;
-  --secondary-gradient: linear-gradient(180deg, #266f0e 0%,#1161168b 90%, #07701984 100%);
+  --secondary: #30cf3b96;
+  --secondary-gradient: linear-gradient(180deg, #266f0e 0%,#01fb128b 60%, #05fdd884 100%);
   --text: white; 
   --bluish: #cfe7ef;
   --curtain: rgba(11, 164, 34, 0.468);
-  --content-box: #0763268d;
+  --content-box: #0ed8a28d;
   --target-bg: #a0c3d28b;
   --carausel-blue: #ffffff7d;
   --hh: 6em;
