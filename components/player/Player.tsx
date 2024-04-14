@@ -24,8 +24,8 @@ function hidePlayer() {
         if (fok) {
           fok.innerHTML = `<iframe
     src="https://www.youtube.com/embed/ENhW6AN1RK0?si=cVX0FnaymRS19weF"
-    width="640"
-    height="349"
+    width="80%"
+    height="80%"
     allow="autoplay; fullscreen; picture-in-picture"
     allowFullScreen
     id="vid"
