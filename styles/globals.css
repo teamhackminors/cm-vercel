@@ -18,7 +18,7 @@ body {
 :root {
   --primary: #b4d1c9;
   --secondary: #30cf3b96;
-  --secondary-gradient: linear-gradient(180deg, #266f0e 0%,#01fb128b 60%, #005e2a84100%);
+  --secondary-gradient: linear-gradient(180deg, #266f0e 0%,#01fb128b 60%, #005e2a84 100%);
   --text: white; 
   --bluish: #cfe7ef;
   --curtain: rgba(11, 164, 34, 0.468);
