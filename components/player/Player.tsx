@@ -44,7 +44,7 @@ function Player() {
       </button>
       <div className={styles.fok}>
         <iframe
-          src="https://player.vimeo.com/video/817913059?h=ed0c3b745b&title=0&byline=0&portrait=0"
+          src="https://www.youtube.com/embed/ENhW6AN1RK0?si=cVX0FnaymRS19weF"
           width="640"
           height="349"
           allow="autoplay; fullscreen; picture-in-picture"
