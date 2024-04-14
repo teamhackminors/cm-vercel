@@ -260,7 +260,7 @@ function HomePage() {
 
         <div className={styles.page} page-index="2" id="pageReel">
           <div id="videoPreview" className={styles.vid} >
-            <div className={styles.vidTitle}>Watch Showreel</div>
+            <div className={styles.vidTitle}>Watch Video</div>
           </div>
         </div>
 
