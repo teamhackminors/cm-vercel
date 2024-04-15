@@ -13,7 +13,7 @@ export default function Footer(prop: { scrollTop: any }) {
           <>
             <ul>
               <li>
-                <a href="mailto:teamhackminor@gmail.com">Contact Us</a>
+                <a href="mailto:teamhackminors@gmail.com">Contact Us</a>
               </li>
             </ul>
           </>
