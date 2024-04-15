@@ -158,6 +158,9 @@
   padding: 10px; /* Add padding for spacing */
   border: 1px solid #f5c6cb; /* Red border */
   border-radius: 5px; /* Rounded corners */
+  text-align: left;
+  width: 1100px;
 }
+
 
 
