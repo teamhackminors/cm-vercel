@@ -1,9 +1,6 @@
-"use client";
-
 import styles from "@/styles/Home.module.css";
 import topic from "@/styles/Topic.module.css";
 import Head from "next/head";
-import Script from "next/script";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { TextPlugin } from "gsap/dist/TextPlugin";
@@ -13,24 +10,24 @@ import React from "react";
 import Image from "next/image";
 import ReactDOM from "react-dom";
 import { RemoveCurtain } from "@/components/curtain/Curtain";
-import { showPlayer } from "@/components/player/Player";
+import {showPlayer} from "@/components/player/Player";
 
-export default function HomePage() {
-  // Register GSAP plugins
+function HomePage() {
+  // rest of the js
   gsap.registerPlugin(ScrollTrigger, TextPlugin);
-
-  // Refs for animated elements
   const titleRef = useRef<HTMLDivElement>(null);
   const imageContainerRef = useRef<HTMLDivElement>(null);
 
-  // Utility functions
-  const percH = (h = 0) => (h > 0 ? (h / window.innerHeight) * 100 : window.innerHeight);
-  const em = (n = 1) => 14 * n + "px";
+  const percH = (h = 0) => {
+    return h > 0 ? (h / window.innerHeight) * 100 : window.innerHeight;
+  };
+  const em = (n = 1) => {
+    return 14 * n + "px";
+  };
 
   useEffect(() => {
     const title = titleRef.current;
     if (title) {
-      // Animate title on scroll
       gsap.to(title, {
         scale: 0.9,
         x: -100,
@@ -42,25 +39,47 @@ export default function HomePage() {
           scrub: true,
         },
       });
+      gsap.to(title, {
+        scrollTrigger: {
+          trigger: title,
+          start: `top 40%`,
+          end: "bottom 20%",
+          scrub: true,
+        },
+      });
 
-      // Video preview animations
       const videoPreview = document.querySelector("#videoPreview");
-      gsap.set(videoPreview, { scaleX: 0.5, transformOrigin: "center" });
+      gsap.set(videoPreview, {
+        scaleX: 0.5,
+        transformOrigin: "center",
+      });
       gsap.to(videoPreview, {
-        scrollTrigger: { trigger: videoPreview, start: "top bottom", end: "top 21px", scrub: true },
+        scrollTrigger: {
+          trigger: videoPreview,
+          start: `top bottom`,
+          end: "top 21px",
+          scrub: true,
+        },
         scaleX: 1,
       });
       gsap.to(videoPreview, {
-        scrollTrigger: { trigger: videoPreview, start: "top 21px", end: "top -500px", scrub: true },
+        scrollTrigger: {
+          trigger: videoPreview,
+          start: `top 21px`,
+          end: "top -500px",
+          scrub: true,
+        },
         y: 200,
-        onComplete: () => console.log("OKAY"),
+        onComplete: () => {
+          console.log("OKAY");
+        },
       });
 
-      // Click to show player
-      videoPreview?.addEventListener("click", showPlayer);
+      videoPreview?.addEventListener("click", () => {
+        showPlayer();
+      });
     }
 
-    // Curtain removal on load
     const handleLoad = () => RemoveCurtain();
     const images = document.querySelectorAll("img");
     const bgVid = document.querySelector(".fsBgVid") as HTMLVideoElement;
@@ -77,11 +96,12 @@ export default function HomePage() {
       if (image.complete) reduceImagesToLoad();
       else image.addEventListener("load", reduceImagesToLoad);
     });
-
     return () => {
-      images.forEach((image) => image.removeEventListener("load", reduceImagesToLoad));
+      images.forEach((image) =>
+        image.removeEventListener("load", reduceImagesToLoad)
+      );
     };
-  }, []);
+  });
 
   function setValues(data: any) {
     let title = document.querySelector("#topicTitle") as HTMLElement;
@@ -119,8 +139,17 @@ export default function HomePage() {
       opacity: 1,
       duration: 0.5,
       onStart: () => {
-        gsap.to("#topicReturn", { x: 0, opacity: 0.8, duration: 0.5, delay: 0.3 });
-        gsap.to("#topicImg", { scale: 0.9, duration: 0.5 });
+        gsap.to("#topicReturn", {
+          x: 0,
+          opacity: 0.8,
+          duration: 0.5,
+          delay: 0.3,
+        });
+        gsap.to("#topicImg", {
+          scale: 0.9,
+          duration: 0.5,
+
+        });
       },
       onComplete: () => {
         if (elms[0] && elms[1]) {
@@ -147,12 +176,17 @@ export default function HomePage() {
 
   function closeTopic() {
     const topicOverlay = document.querySelector("." + topic.overlay);
-    gsap.to("." + topic.content, { opacity: 0, duration: 0.5 });
+    gsap.to("." + topic.content, {
+      opacity: 0,
+      duration: 0.5,
+    });
     gsap.to(topicOverlay, {
       delay: 0.4,
       duration: 0.8,
       y: "-100%",
-      onComplete: () => gsap.set(topicOverlay, { y: "100%" }),
+      onComplete: () => {
+        gsap.set(topicOverlay, { y: "100%" });
+      },
     });
   }
 
@@ -162,47 +196,31 @@ export default function HomePage() {
         width={500}
         height={220}
         id="topicImg"
+        
         src={src}
         alt={alt}
         className={topic.img}
         priority
-      />
+      ></Image>
     );
   }
 
   return (
-    <>
+    <>  
       <Head>
         <title>Carbon Manager — Home</title>
       </Head>
 
-      {/* Botpress Webchat Injection */}
-      <Script id="botpress-chat-inject" strategy="afterInteractive">
-        {`
-          var chatDiv = document.createElement('div');
-          chatDiv.id = 'botpressChat';
-          document.body.appendChild(chatDiv);
-          var script1 = document.createElement('script');
-          script1.src = 'https://cdn.botpress.cloud/webchat/v1/inject.js';
-          script1.onload = function() {
-            var script2 = document.createElement('script');
-            script2.src = 'https://mediafiles.botpress.cloud/c80ccde7-2db0-4ca9-99b0-14c91448ee4e/webchat/config.js';
-            script2.defer = true;
-            document.body.appendChild(script2);
-          };
-          document.body.appendChild(script1);
-          alert("Hi! This is to inform you that we have successfully plugged in our AI Chatbot, Chat2Eco, right at the bottom-right corner of your screen! You may check it out!");
-        `}
-      </Script>
-
-      {/* Topic Overlay */}
       <div className={topic.overlay}>
         <div className={topic.content}>
           <div className={topic.image}>
             <div
               className={topic.goBack}
+              
               id="topicReturn"
-              onClick={closeTopic}
+              onClick={() => {
+                closeTopic();
+              }}
             >
               <span>←</span> Return
             </div>
@@ -210,6 +228,7 @@ export default function HomePage() {
               className={topic.imgCont}
               id="topicImageContainer"
               ref={imageContainerRef}
+              
             >
               {generateImg(
                 "/images/river.jpg",
@@ -224,14 +243,13 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Main Content */}
       <main id="mainPage">
-        {/* Page 1: Landing */}
         <div className={styles.page} page-index="1" id="pageLanding">
+          <div></div>
           <div className={styles.landing}>
             <div className={styles.title} ref={titleRef}>
-              <span>Carbon</span>
-              <span>Manager</span>
+              <span >Carbon</span>
+              <span >Manager</span>
               <br />
               <hr />
               <br />
@@ -240,14 +258,12 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Page 2: Video Reel */}
         <div className={styles.page} page-index="2" id="pageReel">
-          <div id="videoPreview" className={styles.vid}>
+          <div id="videoPreview" className={styles.vid} >
             <div className={styles.vidTitle}>Watch Video</div>
           </div>
         </div>
 
-        {/* Page 3: Content Sections */}
         <div className={styles.page} page-index="3" id="pageIntro">
           <Content
             tag="UN SDGs"
@@ -281,11 +297,16 @@ export default function HomePage() {
             image="/images/4.png"
             caption="UN SDGs prevalent in our project."
             text="Our system is built upon a foundation of meticulously curated data and advanced algorithmic techniques, ensuring the highest standards of accuracy and reliability. "
-            long="<p>UN SDG 3: Good Health and Well-being - Promotes access to healthcare, disease prevention, and mental health support, ensuring all individuals can lead healthy lives.<br/><br/>
-            UN SDG 7: Affordable and Clean Energy - Advocates for sustainable energy sources, aiming to provide reliable and clean electricity to all, while fostering innovation in renewable energy technologies.<br/><br/>
-            UN SDG 11: Sustainable Cities and Communities - Focuses on creating inclusive, safe, resilient, and sustainable urban environments, with accessible public transportation, green spaces, and affordable housing.<br/><br/>
-            UN SDG 12: Responsible Consumption and Production - Encourages efficient resource use, waste reduction, and sustainable practices throughout the production and consumption lifecycle, promoting economic growth while minimizing environmental impacts.<br/><br/>
-            UN SDG 13: Climate Action - Urges global cooperation to combat climate change and its impacts, through mitigation measures, adaptation strategies, and raising awareness about the importance of environmental conservation.<br/><br/>
+            long="<p>UN SDG 3: Good Health and Well-being - Promotes access to healthcare, disease prevention, and mental health support, ensuring all individuals can lead healthy lives.<br><br>
+
+            UN SDG 7: Affordable and Clean Energy - Advocates for sustainable energy sources, aiming to provide reliable and clean electricity to all, while fostering innovation in renewable energy technologies.<br><br>
+            
+            UN SDG 11: Sustainable Cities and Communities - Focuses on creating inclusive, safe, resilient, and sustainable urban environments, with accessible public transportation, green spaces, and affordable housing.<br><br>
+            
+            UN SDG 12: Responsible Consumption and Production - Encourages efficient resource use, waste reduction, and sustainable practices throughout the production and consumption lifecycle, promoting economic growth while minimizing environmental impacts.<br><br>
+            
+            UN SDG 13: Climate Action - Urges global cooperation to combat climate change and its impacts, through mitigation measures, adaptation strategies, and raising awareness about the importance of environmental conservation.<br><br>
+            
             UN SDG 15: Life on Land - Aims to protect, restore, and sustainably manage terrestrial ecosystems, preserving biodiversity, combating desertification, and ensuring the sustainable use of land resources for current and future generations.</p>"
             clickback={topicTransition}
           />
@@ -305,3 +326,5 @@ export default function HomePage() {
     </>
   );
 }
+
+export default HomePage;
